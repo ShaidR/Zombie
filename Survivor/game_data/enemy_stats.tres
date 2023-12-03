@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://u440k8iwghyp"]
+
+[ext_resource type="Script" path="res://scripts/scriptable_objects/unit_stats.gd" id="1_8k7dq"]
+
+[resource]
+script = ExtResource("1_8k7dq")
+speed = 65.0
+maxHealth = 10.0
+strength = 15.0
+throw_velocity = 400.0
+knockbackPower = 150.0
