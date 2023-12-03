@@ -1,0 +1,48 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1701556662
+icon.svg::CompressedTexture2D::2201169021015947415::1701556629::1701556653::1::::<><>::
+::res://Assets/::1701555944
+tileset x1.png::CompressedTexture2D::3266429840568474429::1701555669::1701556668::1::::<><>::
+tileset x2.png::CompressedTexture2D::4600546501939410442::1701555669::1701556670::1::::<><>::
+tileset x3.png::CompressedTexture2D::5616420020030828382::1701555669::1701556671::1::::<><>::
+::res://Assets/NPC/::1701555669
+6x3 Cells.txt::TextFile::-1::1701555669::0::1::::<><>::
+npc x1.png::CompressedTexture2D::660115844491741411::1701555669::1701556668::1::::<><>::
+npc x2.png::CompressedTexture2D::2643919510837874748::1701555669::1701556668::1::::<><>::
+npc x3.png::CompressedTexture2D::2646762065467393923::1701555669::1701556668::1::::<><>::
+::res://Assets/NPC/No Outlines/::1701555669
+npc x1.png::CompressedTexture2D::2219577347868332780::1701555669::1701556668::1::::<><>::
+npc x2.png::CompressedTexture2D::6258193915350031549::1701555669::1701556668::1::::<><>::
+npc x3.png::CompressedTexture2D::4369178991727026079::1701555669::1701556668::1::::<><>::
+::res://Assets/Players/::1701555668
+8x13 Cells.txt::TextFile::-1::1701555667::0::1::::<><>::
+players blue x1.png::CompressedTexture2D::3391083886261421423::1701555667::1701556667::1::::<><>::
+players blue x2.png::CompressedTexture2D::6404445663001069169::1701555667::1701556667::1::::<><>::
+players blue x3.png::CompressedTexture2D::2996531276709702756::1701555667::1701556668::1::::<><>::
+players green x1.png::CompressedTexture2D::4620248236963473085::1701555668::1701556667::1::::<><>::
+players green x2.png::CompressedTexture2D::545861437324367072::1701555668::1701556667::1::::<><>::
+players green x3.png::CompressedTexture2D::2848128500940393235::1701555668::1701556668::1::::<><>::
+players grey x1.png::CompressedTexture2D::8522386273339611972::1701555668::1701556667::1::::<><>::
+players grey x2.png::CompressedTexture2D::3354373626325541972::1701555668::1701556667::1::::<><>::
+players grey x3.png::CompressedTexture2D::1862919532750602823::1701555668::1701556668::1::::<><>::
+players red x1.png::CompressedTexture2D::2896687009046361982::1701555668::1701556667::1::::<><>::
+players red x2.png::CompressedTexture2D::1825706555758743862::1701555668::1701556667::1::::<><>::
+players red x3.png::CompressedTexture2D::1019950708392253591::1701555668::1701556668::1::::<><>::
+::res://Assets/Players/No Outlines/::1701555669
+players blue x1.png::CompressedTexture2D::7099262371448038231::1701555668::1701556668::1::::<><>::
+players blue x2.png::CompressedTexture2D::4574167492839674177::1701555668::1701556668::1::::<><>::
+players blue x3.png::CompressedTexture2D::6254461638741208522::1701555668::1701556669::1::::<><>::
+players green x1.png::CompressedTexture2D::905869576013549624::1701555668::1701556668::1::::<><>::
+players green x2.png::CompressedTexture2D::1536164373364638680::1701555668::1701556669::1::::<><>::
+players green x3.png::CompressedTexture2D::4161341293691142806::1701555668::1701556669::1::::<><>::
+players grey x1.png::CompressedTexture2D::4183228495849176988::1701555668::1701556668::1::::<><>::
+players grey x2.png::CompressedTexture2D::2041071147338930179::1701555668::1701556669::1::::<><>::
+players grey x3.png::CompressedTexture2D::4542891129000898746::1701555668::1701556669::1::::<><>::
+players red x1.png::CompressedTexture2D::3944696934527564457::1701555669::1701556669::1::::<><>::
+players red x2.png::CompressedTexture2D::297701449029838401::1701555669::1701556669::1::::<><>::
+players red x3.png::CompressedTexture2D::803295009948336841::1701555669::1701556669::1::::<><>::
+::res://Assets/UI/::1701555669
+20x11 Cells.txt::TextFile::-1::1701555669::0::1::::<><>::
+ui x1.png::CompressedTexture2D::4264922919786287605::1701555669::1701556668::1::::<><>::
+ui x2.png::CompressedTexture2D::3224112333899789126::1701555669::1701556668::1::::<><>::
+ui x3.png::CompressedTexture2D::1343506481593996088::1701555669::1701556669::1::::<><>::
