@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp35vnuvkbeqt"]
+[gd_scene load_steps=9 format=3 uid="uid://dxjnr3l2add64"]
 
-[ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_infg0"]
-[ext_resource type="Resource" uid="uid://kqooepfs3tp6" path="res://game_data/player_stats.tres" id="2_jagh1"]
-[ext_resource type="Texture2D" uid="uid://cnx4k10x5amhy" path="res://art/imported/Players/player_red_run.png" id="3_dx32w"]
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_vnyb0"]
+[ext_resource type="Texture2D" uid="uid://c0m4arr2qhx4e" path="res://art/imported/NPC/npc master.png" id="3_gq3tk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfhmk"]
-size = Vector2(20, 13)
+size = Vector2(17.5, 8.25)
 
 [sub_resource type="Animation" id="Animation_hh8x3"]
 length = 0.001
@@ -20,18 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("hurtBox/hurtShape:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_jn6k3"]
@@ -54,7 +41,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hqc7h"]
 resource_name = "walkRight"
-length = 0.6
 loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
@@ -64,22 +50,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("hurtBox/hurtShape:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 3), Vector2(1, -6), Vector2(1, 3), Vector2(1, 3)]
+"values": [0, 1, 2, 3, 4, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1dvij"]
@@ -90,21 +64,19 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yokx"]
-size = Vector2(40, 34)
+size = Vector2(22, 27)
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("hurt_timer") groups=["player"]]
+[node name="enemy" type="CharacterBody2D"]
 z_index = 1
 collision_mask = 31
-script = ExtResource("1_infg0")
-hurt_timer = NodePath("hurtBox/hurtTimer")
-unit_stats = ExtResource("2_jagh1")
+script = ExtResource("1_vnyb0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_dx32w")
-hframes = 4
+texture = ExtResource("3_gq3tk")
+hframes = 5
 
 [node name="walkBox" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 15.5)
+position = Vector2(1.25, 10.125)
 shape = SubResource("RectangleShape2D_wfhmk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -113,12 +85,12 @@ libraries = {
 }
 
 [node name="hurtBox" type="Area2D" parent="."]
-position = Vector2(-1, -1)
+position = Vector2(1, 0)
 collision_layer = 2
 collision_mask = 2
 
 [node name="hurtShape" type="CollisionShape2D" parent="hurtBox"]
-position = Vector2(1, 3)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_5yokx")
 debug_color = Color(0.890196, 0.32549, 0, 0.419608)
 
