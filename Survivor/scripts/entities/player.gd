@@ -20,8 +20,19 @@ func _process(_delta) -> void:
 	_updateAnimation()
 
 func handleInput() -> void:
-	var moveDirection = Input.get_vector("ui_left", "ui_right","ui_up","ui_down")
+	var moveDirection = Input.get_vector("move_left", "move_right","move_up","move_down")
 	velocity = moveDirection * unit_stats.speed
+
+	if Input.is_action_just_pressed("shoot"):
+		_shoot()
+
+func _shoot() -> void:
+	#TODO: Create weapon class
+	#TODO: Create 3 weapons
+	#TODO: Add 3 weapons to player's inventory
+	#TODO: Setup active weapon
+	#TODO: Shoot weapon
+	print_debug("shoot")
 
 func _updateAnimation() -> void:
 	if velocity.length() == 0:
