@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://catt75fwmi7e6"]
+
+[ext_resource type="Script" path="res://scripts/scriptable_objects/weapon.gd" id="1_a3i7a"]
+
+[resource]
+script = ExtResource("1_a3i7a")
+name = "Assault Rifle"
+damage = 5.0
+projectile_speed = 10.0
+fire_rate = 0.1
+reload_time = 1.0

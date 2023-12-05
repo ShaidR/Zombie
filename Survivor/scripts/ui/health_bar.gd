@@ -8,4 +8,4 @@ func _ready():
 	update()
 
 func update():
-	value = unit.currentHealth * 100.0 / unit.unit_stats.maxHealth
+	value = unit.currentHealth * 100.0 / unit.unit_stats.max_health

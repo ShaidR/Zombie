@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://bqsuxsxdt0pst"]
+
+[ext_resource type="Script" path="res://scripts/scriptable_objects/weapon.gd" id="1_idtjj"]
+
+[resource]
+script = ExtResource("1_idtjj")
+name = "Shotgun"
+damage = 8.0
+projectile_speed = 3.0
+fire_rate = 1.0
+reload_time = 1.5

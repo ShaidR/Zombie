@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://iserqlwtvf5p"]
+
+[ext_resource type="Script" path="res://scripts/scriptable_objects/weapon.gd" id="1_uo15g"]
+
+[resource]
+script = ExtResource("1_uo15g")
+name = "Pistol"
+damage = 3.0
+projectile_speed = 3.0
+fire_rate = 0.6
+reload_time = 0.5

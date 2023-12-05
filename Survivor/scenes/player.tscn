@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp35vnuvkbeqt"]
+[gd_scene load_steps=13 format=3 uid="uid://cp35vnuvkbeqt"]
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_infg0"]
 [ext_resource type="Resource" uid="uid://kqooepfs3tp6" path="res://game_data/player_stats.tres" id="2_jagh1"]
+[ext_resource type="Resource" uid="uid://iserqlwtvf5p" path="res://game_data/weapons/pistol.tres" id="2_v71bp"]
+[ext_resource type="Resource" uid="uid://catt75fwmi7e6" path="res://game_data/weapons/assault_rifle.tres" id="3_b60r5"]
 [ext_resource type="Texture2D" uid="uid://cnx4k10x5amhy" path="res://art/imported/Players/player_red_run.png" id="3_dx32w"]
+[ext_resource type="Resource" uid="uid://bqsuxsxdt0pst" path="res://game_data/weapons/shotgun.tres" id="4_y0kx1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfhmk"]
 size = Vector2(30, 6)
@@ -96,6 +99,7 @@ size = Vector2(43, 39)
 z_index = 1
 collision_mask = 31
 script = ExtResource("1_infg0")
+_weapon_inventory = Array[Resource("res://scripts/scriptable_objects/weapon.gd")]([ExtResource("2_v71bp"), ExtResource("4_y0kx1"), ExtResource("3_b60r5")])
 hurt_timer = NodePath("hurtBox/hurtTimer")
 unit_stats = ExtResource("2_jagh1")
 

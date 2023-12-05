@@ -1,16 +1,18 @@
 class_name Player
 extends Unit
 
-@onready var animations: AnimationPlayer = $AnimationPlayer
-@onready var walkBox = $walkBox
-@onready var hurtBox = $hurtBox
+@export var _weapon_inventory: Array[Weapon];
+@onready var _animations: AnimationPlayer = $AnimationPlayer
 
-func _init():
+var _active_weapon: Weapon;
+
+func _init() -> void:
 	unit_name = "Player"
 	canInteract = true
 	
 func _ready() -> void:
-	currentHealth = unit_stats.maxHealth
+	currentHealth = unit_stats.max_health
+	_active_weapon = _weapon_inventory[0]
 	
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
@@ -27,20 +29,16 @@ func handleInput() -> void:
 		_shoot()
 
 func _shoot() -> void:
-	#TODO: Create weapon class
-	#TODO: Create 3 weapons
-	#TODO: Add 3 weapons to player's inventory
-	#TODO: Setup active weapon
 	#TODO: Shoot weapon
 	print_debug("shoot")
 
 func _updateAnimation() -> void:
 	if velocity.length() == 0:
-		if animations.is_playing():
-			animations.stop()
+		if _animations.is_playing():
+			_animations.stop()
 	else:	
 		var direction = "Right"
 		if velocity.x < 0: direction = "Left"
 		elif velocity.x > 0: direction = "Right"
 		elif velocity.y < 0: direction = "Right"
-		animations.play("walk" + direction)
+		_animations.play("walk" + direction)
