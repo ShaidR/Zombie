@@ -5,11 +5,11 @@ extends Unit
 @onready var sprite = $Sprite2D
 @onready var anim = $AnimationPlayer
 
-func _ready():
+func _ready() -> void:
 	anim.play("walk")
 	currentHealth = unit_stats.max_health
 
-func _physics_process(delta):
+func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * unit_stats.speed
 	move_and_slide()
@@ -20,7 +20,7 @@ func _physics_process(delta):
 		sprite.flip_h = true
 
 
-func _on_hurt_box_hurt(damage):
+func _on_hurt_box_hurt(damage: float) -> void:
 	currentHealth -= damage
 	print(currentHealth)
 	if currentHealth <= 0:
