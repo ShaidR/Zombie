@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://catt75fwmi7e6"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://catt75fwmi7e6"]
 
 [ext_resource type="Script" path="res://scripts/scriptable_objects/weapon.gd" id="1_a3i7a"]
+[ext_resource type="Resource" uid="uid://2f12kcu5x08x" path="res://game_data/projectiles/rifle_bullet.tres" id="1_o762s"]
 
 [resource]
 script = ExtResource("1_a3i7a")
 name = "Assault Rifle"
-damage = 5.0
-projectile_speed = 10.0
 fire_rate = 0.1
 reload_time = 1.0
+projectile = ExtResource("1_o762s")

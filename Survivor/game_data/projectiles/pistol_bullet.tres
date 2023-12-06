@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Projectile" load_steps=3 format=3 uid="uid://co47qcufhojlf"]
+
+[ext_resource type="Script" path="res://scripts/scriptable_objects/projectile.gd" id="1_g5lyx"]
+[ext_resource type="Texture2D" uid="uid://dqfaf0wnfmv2" path="res://art/imported/Laser Sprites/07.png" id="2_pxb85"]
+
+[resource]
+script = ExtResource("1_g5lyx")
+damage = 2.0
+speed = 12.0
+sprite = ExtResource("2_pxb85")

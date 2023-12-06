@@ -25,7 +25,7 @@ func _process(_delta) -> void:
 	_updateAnimation()
 
 func handleInput() -> void:
-	var move_direction = Input.get_vector("move_left", "move_right","move_up","move_down")
+	var move_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = move_direction * unit_stats.speed
 	if move_direction.x > 0.1:
 		_sprite.flip_h = false
@@ -33,10 +33,10 @@ func handleInput() -> void:
 		_sprite.flip_h = true
 
 	if Input.is_action_pressed("shoot"):
-		_shoot()
+		_shoot(move_direction)
 
-func _shoot() -> void:
-	_weapon_handler.shoot()
+func _shoot(move_direction: Vector2) -> void:
+	_weapon_handler.shoot(move_direction)
 
 func _updateAnimation() -> void:
 	if velocity.length() == 0:

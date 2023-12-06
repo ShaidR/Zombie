@@ -12,10 +12,10 @@ func _ready() -> void:
 func _on_fire_timer_timeout() -> void:
 	_can_fire = true
 
-func shoot() -> void:
+func shoot(direction: Vector2) -> void:
 	if _can_shoot():
 		_can_fire = false
-		print_debug("shoot")
+		print_debug("shooting ", direction)
 		_fire_timer.start()
 
 func _can_shoot() -> bool:
