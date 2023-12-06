@@ -3,6 +3,8 @@ extends Unit
 
 @export var _weapon_inventory: Array[Weapon];
 @onready var _animations: AnimationPlayer = $AnimationPlayer
+@onready var _weapon_handler: WeaponHandler = $WeaponHandler
+
 var _active_weapon: Weapon;
 
 func _init() -> void:
@@ -12,6 +14,7 @@ func _init() -> void:
 func _ready() -> void:
 	currentHealth = unit_stats.max_health
 	_active_weapon = _weapon_inventory[0]
+	_weapon_handler.set_active_weapon(_active_weapon)
 	
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
@@ -24,12 +27,11 @@ func handleInput() -> void:
 	var moveDirection = Input.get_vector("move_left", "move_right","move_up","move_down")
 	velocity = moveDirection * unit_stats.speed
 
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		_shoot()
 
 func _shoot() -> void:
-	#TODO: Shoot weapon
-	print_debug("shoot")
+	_weapon_handler.shoot()
 
 func _updateAnimation() -> void:
 	if velocity.length() == 0:

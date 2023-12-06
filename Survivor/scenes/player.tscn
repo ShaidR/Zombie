@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://catt75fwmi7e6" path="res://game_data/weapons/assault_rifle.tres" id="3_b60r5"]
 [ext_resource type="Texture2D" uid="uid://cnx4k10x5amhy" path="res://art/imported/Players/player_red_run.png" id="3_dx32w"]
 [ext_resource type="Resource" uid="uid://bqsuxsxdt0pst" path="res://game_data/weapons/shotgun.tres" id="4_y0kx1"]
-[ext_resource type="Script" path="res://scripts/interfaces/hurtBox.gd" id="7_f74cw"]
+[ext_resource type="PackedScene" uid="uid://b63j8fanurljq" path="res://scenes/weapon_handler.tscn" id="7_12fi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfhmk"]
 size = Vector2(30, 6)
@@ -98,6 +98,7 @@ size = Vector2(43, 39)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("hurt_timer") groups=["player"]]
 z_index = 1
+collision_mask = 31
 script = ExtResource("1_infg0")
 _weapon_inventory = Array[Resource("res://scripts/scriptable_objects/weapon.gd")]([ExtResource("2_v71bp"), ExtResource("4_y0kx1"), ExtResource("3_b60r5")])
 hurt_timer = NodePath("hurtBox/hurtTimer")
@@ -121,7 +122,6 @@ libraries = {
 position = Vector2(-1, -1)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("7_f74cw")
 
 [node name="hurtShape" type="CollisionShape2D" parent="hurtBox"]
 position = Vector2(1, 3)
@@ -131,7 +131,8 @@ debug_color = Color(0.890196, 0.32549, 0, 0.419608)
 [node name="hurtTimer" type="Timer" parent="hurtBox"]
 wait_time = 0.5
 
+[node name="WeaponHandler" parent="." instance=ExtResource("7_12fi5")]
+
 [connection signal="body_entered" from="hurtBox" to="." method="hurtByEnemy"]
 [connection signal="body_exited" from="hurtBox" to="." method="_on_hurt_box_body_exited"]
-[connection signal="hurt" from="hurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="hurtBox/hurtTimer" to="." method="_on_hurt_timer_timeout"]
