@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxjnr3l2add64"]
+[gd_scene load_steps=12 format=3 uid="uid://dxjnr3l2add64"]
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_vnyb0"]
+[ext_resource type="Resource" uid="uid://u440k8iwghyp" path="res://game_data/enemy_stats.tres" id="2_tu2fo"]
+[ext_resource type="Script" path="res://scripts/interfaces/hurtBox.gd" id="3_bnecb"]
 [ext_resource type="Texture2D" uid="uid://c0m4arr2qhx4e" path="res://art/imported/NPC/npc master.png" id="3_gq3tk"]
+[ext_resource type="Script" path="res://scripts/interfaces/hitBox.gd" id="4_tv5l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfhmk"]
 size = Vector2(17.5, 8.25)
@@ -21,26 +24,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_jn6k3"]
-resource_name = "walkLeft"
-length = 0.6
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [2, 1, 0, 2]
-}
-
 [sub_resource type="Animation" id="Animation_hqc7h"]
-resource_name = "walkRight"
+resource_name = "walk"
 loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
@@ -59,17 +44,20 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1dvij"]
 _data = {
 "RESET": SubResource("Animation_hh8x3"),
-"walkLeft": SubResource("Animation_jn6k3"),
-"walkRight": SubResource("Animation_hqc7h")
+"walk": SubResource("Animation_hqc7h")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yokx"]
-size = Vector2(22, 27)
+size = Vector2(19.5625, 24.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2ji"]
+size = Vector2(10, 16)
 
 [node name="enemy" type="CharacterBody2D"]
 z_index = 1
-collision_mask = 31
+collision_mask = 5
 script = ExtResource("1_vnyb0")
+unit_stats = ExtResource("2_tu2fo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_gq3tk")
@@ -86,17 +74,34 @@ libraries = {
 
 [node name="hurtBox" type="Area2D" parent="."]
 position = Vector2(1, 0)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_bnecb")
 
 [node name="hurtShape" type="CollisionShape2D" parent="hurtBox"]
-position = Vector2(0, 0.5)
+position = Vector2(-0.21875, -1)
 shape = SubResource("RectangleShape2D_5yokx")
 debug_color = Color(0.890196, 0.32549, 0, 0.419608)
 
 [node name="hurtTimer" type="Timer" parent="hurtBox"]
 wait_time = 0.5
+one_shot = true
 
-[connection signal="body_entered" from="hurtBox" to="." method="hurtByEnemy"]
-[connection signal="body_exited" from="hurtBox" to="." method="_on_hurt_box_body_exited"]
-[connection signal="timeout" from="hurtBox/hurtTimer" to="." method="_on_hurt_timer_timeout"]
+[node name="hitBox" type="Area2D" parent="." groups=["attack"]]
+position = Vector2(2, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_tv5l6")
+
+[node name="hitShape" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_vc2ji")
+
+[node name="hitTimer" type="Timer" parent="hitBox"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="hurtBox" to="hurtBox" method="_on_area_entered"]
+[connection signal="hurt" from="hurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="timeout" from="hurtBox/hurtTimer" to="hurtBox" method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="hitBox/hitTimer" to="hitBox" method="_on_hit_timer_timeout"]

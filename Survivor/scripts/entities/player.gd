@@ -3,7 +3,6 @@ extends Unit
 
 @export var _weapon_inventory: Array[Weapon];
 @onready var _animations: AnimationPlayer = $AnimationPlayer
-
 var _active_weapon: Weapon;
 
 func _init() -> void:
@@ -42,3 +41,8 @@ func _updateAnimation() -> void:
 		elif velocity.x > 0: direction = "Right"
 		elif velocity.y < 0: direction = "Right"
 		_animations.play("walk" + direction)
+
+
+func _on_hurt_box_hurt(damage):
+	currentHealth -= damage
+	print(currentHealth)

@@ -4,8 +4,6 @@
 
 [resource]
 script = ExtResource("1_bbchm")
-speed = 65.0
-maxHealth = 30.0
-strength = 30.0
-throw_velocity = 400.0
-knockbackPower = 150.0
+speed = 300.0
+max_health = 100.0
+damage = 3.0

@@ -98,6 +98,7 @@ size = Vector2(43, 39)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("hurt_timer") groups=["player"]]
 z_index = 1
+collision_mask = 31
 script = ExtResource("1_infg0")
 _weapon_inventory = Array[Resource("res://scripts/scriptable_objects/weapon.gd")]([ExtResource("2_v71bp"), ExtResource("4_y0kx1"), ExtResource("3_b60r5")])
 hurt_timer = NodePath("hurtBox/hurtTimer")
@@ -122,6 +123,7 @@ position = Vector2(-1, -1)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("7_f74cw")
+HurtBoxType = 2
 
 [node name="hurtShape" type="CollisionShape2D" parent="hurtBox"]
 position = Vector2(1, 3)
