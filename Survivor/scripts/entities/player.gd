@@ -4,6 +4,7 @@ extends Unit
 @export var _weapon_inventory: Array[Weapon];
 @onready var _animations: AnimationPlayer = $AnimationPlayer
 @onready var _weapon_handler: WeaponHandler = $WeaponHandler
+@onready var _sprite: Sprite2D = $Sprite2D
 
 var _active_weapon: Weapon;
 
@@ -24,8 +25,12 @@ func _process(_delta) -> void:
 	_updateAnimation()
 
 func handleInput() -> void:
-	var moveDirection = Input.get_vector("move_left", "move_right","move_up","move_down")
-	velocity = moveDirection * unit_stats.speed
+	var move_direction = Input.get_vector("move_left", "move_right","move_up","move_down")
+	velocity = move_direction * unit_stats.speed
+	if move_direction.x > 0.1:
+		_sprite.flip_h = false
+	elif move_direction.x < -0.1:
+		_sprite.flip_h = true
 
 	if Input.is_action_pressed("shoot"):
 		_shoot()
