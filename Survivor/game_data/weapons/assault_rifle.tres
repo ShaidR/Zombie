@@ -9,3 +9,4 @@ name = "Assault Rifle"
 fire_rate = 0.1
 reload_time = 1.0
 projectile = ExtResource("1_o762s")
+projectile_spawn_offset = Vector2(35, -5)

@@ -7,10 +7,14 @@ extends CharacterBody2D
 
 var direction: Vector2 = Vector2.RIGHT
 var speed: float = 0.0
+var damage: float = 0.0
+var texture: Texture2D
 
 func _ready() -> void:
 	_visibility_notifier.connect("screen_exited", _on_screen_exited)
 	_death_timer.connect("timeout", _on_death_timer_timeout)
+
+	_sprite.texture = texture
 
 func _physics_process(delta: float) -> void:
 	move_and_collide(direction * speed * delta)
@@ -20,3 +24,9 @@ func _on_screen_exited() -> void:
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
+
+func initialize(projectile_info: Projectile, in_direction: Vector2) -> void:
+	texture = projectile_info.sprite
+	speed = projectile_info.speed
+	damage = projectile_info.damage
+	self.direction = in_direction

@@ -33,7 +33,8 @@ func handleInput() -> void:
 		_sprite.flip_h = true
 
 	if Input.is_action_pressed("shoot"):
-		_shoot(move_direction)
+		var shoot_direction: Vector2 = Vector2.LEFT if  _sprite.flip_h else Vector2.RIGHT
+		_shoot(shoot_direction)
 
 func _shoot(move_direction: Vector2) -> void:
 	_weapon_handler.shoot(move_direction)
@@ -50,6 +51,13 @@ func _updateAnimation() -> void:
 		_animations.play("walk" + direction)
 
 
-func _on_hurt_box_hurt(damage):
+func _on_body_entered_hurt_area(body: Node2D):
+	if body.is_in_group("enemies"):
+		var enemy = body as Unit 
+		if enemy:
+			_damage(enemy.unit_stats.damage)
+
+func _damage(damage: float) -> void:
 	currentHealth -= damage
 	print(currentHealth)
+	# TODO: Check for game over and fire event

@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameSignalBus="*res://scripts/managers/game_signal_bus.gd"
+
 [input]
 
 move_up={
@@ -58,6 +62,7 @@ shoot={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Loot"
+2d_physics/layer_5="Projectiles"
 
 [rendering]
 

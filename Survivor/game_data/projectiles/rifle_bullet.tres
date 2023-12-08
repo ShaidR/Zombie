@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_r8jaq")
 damage = 4.0
-speed = 16.0
+speed = 300.0
 sprite = ExtResource("2_udr51")

@@ -19,8 +19,14 @@ func _physics_process(_delta: float) -> void:
 	elif direction.x < -0.1:
 		sprite.flip_h = true
 
+func _on_body_entered_hurt_area(body: Node2D):
+	if body.is_in_group("projectiles"):
+		var bullet = body as Bullet
+		if bullet:
+			_damage(bullet.damage)
+			bullet.queue_free()
 
-func _on_hurt_box_hurt(damage: float) -> void:
+func _damage(damage: float) -> void:
 	currentHealth -= damage
 	print(currentHealth)
 	if currentHealth <= 0:

@@ -1,13 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsglohlsitepn"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_jrx6t"]
-[ext_resource type="Texture2D" uid="uid://cwpmbcqratvwm" path="res://art/imported/Laser Sprites/25.png" id="2_0cn1k"]
+[ext_resource type="Texture2D" uid="uid://dci1sca4qwxnu" path="res://art/imported/Laser Sprites/08.png" id="2_an2fk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5q7b"]
-radius = 13.0
-height = 54.0
+radius = 8.0
+height = 48.0
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D" groups=["projectiles"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 16
+collision_mask = 13
 script = ExtResource("1_jrx6t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -15,7 +18,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_h5q7b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0cn1k")
+texture = ExtResource("2_an2fk")
 
 [node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
 

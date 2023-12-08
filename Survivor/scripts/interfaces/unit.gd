@@ -5,7 +5,7 @@ extends CharacterBody2D
 signal healthChanged
 
 # Variables
-var unit_name = " "
+var unit_name: String = " "
 var canInteract : bool = true
 var isHurt : bool = false
 
@@ -16,8 +16,6 @@ var isHurt : bool = false
 func _ready() -> void:
 	pass
 func _on_hurt_timer_timeout() -> void:
-	pass
-func _on_hurt_box_body_exited(_body) -> void:
 	pass
 
 func is_alive() -> bool:
