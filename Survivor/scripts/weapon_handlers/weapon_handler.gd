@@ -2,7 +2,6 @@ class_name WeaponHandler
 extends Node2D
 
 @onready var _fire_timer: Timer = $FireTimer
-@onready var _base_bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
 
 var _active_weapon: Weapon;
 var _can_fire: bool = false;
@@ -16,13 +15,17 @@ func _on_fire_timer_timeout() -> void:
 func shoot(direction: Vector2) -> void:
 	if _can_shoot():
 		_can_fire = false
-		GameSignalBus.fire_projectile.emit(_active_weapon.projectile, global_position + _active_weapon.projectile_spawn_offset, direction)
+		GameSignalBus.fire_projectile.emit(
+			_active_weapon.projectile, 
+			global_position,
+			direction)
 		_fire_timer.start()
 
 func _can_shoot() -> bool:
 	return _active_weapon != null and _can_fire
 
 func set_active_weapon(weapon: Weapon) -> void:
+	print_debug("Setting Active Weapon to ", weapon.name)
 	_active_weapon = weapon
 	# Note: If we allow manual swapping of weapon, we should preserve the fire
 	# cooldown so players can't cheat.

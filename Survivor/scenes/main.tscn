@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8w3d0l7l5hhi"]
+[gd_scene load_steps=8 format=3 uid="uid://c8w3d0l7l5hhi"]
 
 [ext_resource type="Texture2D" uid="uid://c3m8bd0j6bo4b" path="res://art/imported/tileset x1.png" id="1_wg1bj"]
 [ext_resource type="PackedScene" uid="uid://cp35vnuvkbeqt" path="res://scenes/player.tscn" id="2_l2x1g"]
 [ext_resource type="PackedScene" uid="uid://dl3xhk8lm1bn1" path="res://scenes/enemy_spawner.tscn" id="3_iv1en"]
 [ext_resource type="PackedScene" uid="uid://blqv77o3fvyll" path="res://scenes/projectile_manager.tscn" id="4_qe6st"]
+[ext_resource type="PackedScene" uid="uid://bid8ouyo82h5l" path="res://weapon_cycle_manager.tscn" id="5_hm53e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4niyg"]
 texture = ExtResource("1_wg1bj")
@@ -915,3 +916,5 @@ position = Vector2(538, 341)
 [node name="EnemySpawner" parent="." instance=ExtResource("3_iv1en")]
 
 [node name="ProjectileManager" parent="." instance=ExtResource("4_qe6st")]
+
+[node name="WeaponCycleManager" parent="." instance=ExtResource("5_hm53e")]

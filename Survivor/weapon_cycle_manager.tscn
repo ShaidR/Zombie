@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bid8ouyo82h5l"]
+
+[ext_resource type="Script" path="res://scripts/managers/weapon_cycle_manager.gd" id="1_t0pcv"]
+
+[node name="WeaponCycleManager" type="Node"]
+script = ExtResource("1_t0pcv")
+
+[node name="WeaponCycleTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
