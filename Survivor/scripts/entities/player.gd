@@ -64,7 +64,8 @@ func _damage(damage: float) -> void:
 	currentHealth -= damage
 	health_changed.emit(currentHealth,unit_stats.max_health)
 	print(currentHealth)
-	# TODO: Check for game over and fire event
+	if currentHealth <= 0:
+		get_tree().change_scene_to_file("res://scenes/gameOver.tscn")
 
 func _cycle_weapon() -> void:
 	_active_weapon_index = (_active_weapon_index + 1) % _weapon_inventory.size()

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ee08ni37qblt"]
+
+[ext_resource type="Script" path="res://scripts/ui/gameOver.gd" id="1_bl0oh"]
+
+[sub_resource type="Gradient" id="Gradient_b73jv"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m6epd"]
+gradient = SubResource("Gradient_b73jv")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bl0oh")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(582, 335.25)
+scale = Vector2(4.5625, 671.5)
+texture = SubResource("GradientTexture1D_m6epd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+offset_left = -2.0
+offset_right = 1165.0
+offset_bottom = 667.0
+size_flags_horizontal = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 108
+text = "Game Over !!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Retry?"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
