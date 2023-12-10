@@ -6,6 +6,6 @@ extends Node
 func _ready() -> void:
 	_weapon_cycle_timer.autostart = true
 	_weapon_cycle_timer.connect("timeout", _on_weapon_cycle_timer_timeout)
-
+	
 func _on_weapon_cycle_timer_timeout() -> void:
 	GameSignalBus.cycle_weapon.emit()

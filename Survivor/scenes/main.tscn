@@ -951,6 +951,12 @@ theme_override_font_sizes/font_size = 32
 text = "weapon:"
 uppercase = true
 
+[node name="TimerLabel" type="Label" parent="HUD/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Time Left: "
+uppercase = true
+
 [node name="healthBar" parent="HUD/Panel" instance=ExtResource("7_k2fqx")]
 layout_mode = 2
 offset_left = 1015.0

@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_8k7dq")
 speed = 65.0
-max_health = 3.0
-damage = 50.0
+max_health = 5.0
+damage = 5.0
