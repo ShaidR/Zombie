@@ -6,7 +6,6 @@
 [resource]
 script = ExtResource("1_idtjj")
 name = "Shotgun"
-fire_rate = 1.0
+fire_rate = 0.8
 reload_time = 1.5
 projectile = ExtResource("1_38b61")
-projectile_spawn_offset = Vector2(35, -5)
