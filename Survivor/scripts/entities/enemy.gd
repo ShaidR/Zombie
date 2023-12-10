@@ -5,6 +5,8 @@ extends Unit
 @onready var sprite = $Sprite2D
 @onready var anim = $AnimationPlayer
 
+signal enemy_killed
+
 func _ready() -> void:
 	anim.play("walk")
 	currentHealth = unit_stats.max_health
@@ -30,4 +32,6 @@ func _damage(damage: float) -> void:
 	currentHealth -= damage
 	print(currentHealth)
 	if currentHealth <= 0:
+		GameManager.kills += 1
+		emit_signal("enemy_killed")
 		queue_free()

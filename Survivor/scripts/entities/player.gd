@@ -7,6 +7,8 @@ extends Unit
 @onready var _sprite: Sprite2D = $Sprite2D
 
 var _active_weapon_index: int;
+signal health_changed(currentHealth, maxHealth)
+
 
 func _init() -> void:
 	unit_name = "Player"
@@ -14,6 +16,7 @@ func _init() -> void:
 	
 func _ready() -> void:
 	currentHealth = unit_stats.max_health
+	health_changed.emit(currentHealth,unit_stats.max_health)
 	_active_weapon_index = 0 
 	_weapon_handler.set_active_weapon(_weapon_inventory[_active_weapon_index])
 	GameSignalBus.cycle_weapon.connect(_cycle_weapon)
@@ -59,6 +62,7 @@ func _on_body_entered_hurt_area(body: Node2D):
 
 func _damage(damage: float) -> void:
 	currentHealth -= damage
+	health_changed.emit(currentHealth,unit_stats.max_health)
 	print(currentHealth)
 	# TODO: Check for game over and fire event
 

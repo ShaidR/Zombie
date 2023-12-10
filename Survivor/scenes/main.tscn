@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8w3d0l7l5hhi"]
+[gd_scene load_steps=10 format=3 uid="uid://c8w3d0l7l5hhi"]
 
 [ext_resource type="Texture2D" uid="uid://c3m8bd0j6bo4b" path="res://art/imported/tileset x1.png" id="1_wg1bj"]
 [ext_resource type="PackedScene" uid="uid://cp35vnuvkbeqt" path="res://scenes/player.tscn" id="2_l2x1g"]
 [ext_resource type="PackedScene" uid="uid://dl3xhk8lm1bn1" path="res://scenes/enemy_spawner.tscn" id="3_iv1en"]
 [ext_resource type="PackedScene" uid="uid://blqv77o3fvyll" path="res://scenes/projectile_manager.tscn" id="4_qe6st"]
 [ext_resource type="PackedScene" uid="uid://bid8ouyo82h5l" path="res://weapon_cycle_manager.tscn" id="5_hm53e"]
+[ext_resource type="Script" path="res://scripts/ui/HUD.gd" id="6_2k1be"]
+[ext_resource type="PackedScene" uid="uid://bqkdppd7jp7rv" path="res://scenes/health_bar.tscn" id="7_k2fqx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4niyg"]
 texture = ExtResource("1_wg1bj")
@@ -918,3 +920,44 @@ position = Vector2(538, 341)
 [node name="ProjectileManager" parent="." instance=ExtResource("4_qe6st")]
 
 [node name="WeaponCycleManager" parent="." instance=ExtResource("5_hm53e")]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_2k1be")
+
+[node name="Panel" type="Panel" parent="HUD"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 49.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Panel"]
+layout_mode = 0
+offset_right = 1100.0
+offset_bottom = 45.0
+theme_override_constants/separation = 100
+
+[node name="KillsLabel" type="Label" parent="HUD/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "kills: "
+uppercase = true
+
+[node name="WeaponLabel" type="Label" parent="HUD/Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "weapon:"
+uppercase = true
+
+[node name="healthBar" parent="HUD/Panel" instance=ExtResource("7_k2fqx")]
+layout_mode = 2
+offset_left = 1015.0
+offset_top = -16.0
+offset_right = 1047.0
+offset_bottom = 4.0
+scale = Vector2(4, 4)
+size_flags_stretch_ratio = 3.46
+
+[connection signal="health_changed" from="Player" to="HUD/Panel/healthBar" method="_on_player_health_changed"]

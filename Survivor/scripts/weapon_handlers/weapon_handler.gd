@@ -26,6 +26,7 @@ func _can_shoot() -> bool:
 
 func set_active_weapon(weapon: Weapon) -> void:
 	print_debug("Setting Active Weapon to ", weapon.name)
+	GameManager.weapon = weapon.name
 	_active_weapon = weapon
 	# Note: If we allow manual swapping of weapon, we should preserve the fire
 	# cooldown so players can't cheat.
