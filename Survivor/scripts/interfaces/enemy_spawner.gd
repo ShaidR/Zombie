@@ -3,7 +3,6 @@ extends Node2D
 @export var spawns: Array[Spawn_info] = []
 
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var hud = $"../HUD"
 
 var time = 0
 
@@ -22,7 +21,6 @@ func _on_timer_timeout():
 					var enemy_spawn = new_enemy.instantiate()
 					enemy_spawn.global_position = get_random_position()
 					add_child(enemy_spawn)
-					enemy_spawn.enemy_killed.connect(hud._on_enemy_killed)
 					counter += 1
 
 func get_random_position():

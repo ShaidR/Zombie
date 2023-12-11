@@ -5,7 +5,6 @@ extends Unit
 @onready var sprite = $Sprite2D
 @onready var anim = $AnimationPlayer
 
-signal enemy_killed
 
 func _ready() -> void:
 	anim.play("walk")
@@ -33,5 +32,5 @@ func _damage(damage: float) -> void:
 	print(currentHealth)
 	if currentHealth <= 0:
 		GameManager.kills += 1
-		emit_signal("enemy_killed")
+		GameSignalBus.enemy_killed.emit()
 		queue_free()

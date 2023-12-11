@@ -965,5 +965,3 @@ offset_right = 1047.0
 offset_bottom = 4.0
 scale = Vector2(4, 4)
 size_flags_stretch_ratio = 3.46
-
-[connection signal="health_changed" from="Player" to="HUD/Panel/healthBar" method="_on_player_health_changed"]
